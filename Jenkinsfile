@@ -47,13 +47,13 @@ pipeline {
 
     stage("Docker build") {
       steps {
-        sh "docker build -t leszko/calculator:${BUILD_TIMESTAMP} ."
+        sh "docker build -t preethisekar2005/calculator:${BUILD_TIMESTAMP} ."
       }
     }
 
     stage("Docker login") {
       steps {
-        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'leszko',
+        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'preethisekar2005',
                           usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
           sh "docker login --username $USERNAME --password $PASSWORD"
         }
@@ -62,7 +62,7 @@ pipeline {
 
     stage("Docker push") {
       steps {
-        sh "docker push leszko/calculator:${BUILD_TIMESTAMP}"
+        sh "docker push preethisekar2005/calculator:${BUILD_TIMESTAMP}"
       }
     }
 
