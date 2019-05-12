@@ -1,7 +1,7 @@
 version: "2"
 services:
   calculator:
-    image: leszko/calculator:latest
+    image: preethisekar2005/calculator_1:latest
     ports:
       - 8080
   redis:
